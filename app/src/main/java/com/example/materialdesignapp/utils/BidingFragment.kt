@@ -11,6 +11,7 @@ abstract class BindingFragment<T : ViewBinding>(
     private val inflateBinding: (inflater: LayoutInflater, root: ViewGroup?, attachToRoot: Boolean) -> T
 ) : Fragment() {
 
+    abstract val viewModel: Any
     private var _binding: T? = null
     val binding: T
         get() {
