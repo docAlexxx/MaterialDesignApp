@@ -1,20 +1,9 @@
 package com.example.materialdesignapp.view
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import com.example.materialdesignapp.R
+import com.example.materialdesignapp.databinding.FragmentMainBinding
+import com.example.materialdesignapp.utils.BindingFragment
 
-class MainFragment : Fragment() {
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_main, container, false)
-    }
+class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::inflate) {
 
     companion object {
 
