@@ -1,6 +1,8 @@
 package com.example.materialdesignapp.view
 
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
@@ -25,18 +27,24 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
             renderData(it)
         })
         viewModel.sendRequest()
+
+        binding.inputLayout.setEndIconOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW).apply {
+                data  = Uri.parse("https://en.wikipedia.org/wiki/${binding.inputEditText.text.toString()}")
+            })
+        }
     }
 
-    private fun renderData(pictureOfTheDayData: PictureOfTheDayAppState) {
-        when (pictureOfTheDayData) {
+    private fun renderData(pictureOfTheDay: PictureOfTheDayAppState) {
+        when (pictureOfTheDay) {
             is PictureOfTheDayAppState.Error -> {
-                Snackbar.make(binding.imageView, pictureOfTheDayData.error, Snackbar.LENGTH_LONG).show()
+                Snackbar.make(binding.imageView, pictureOfTheDay.error, Snackbar.LENGTH_LONG).show()
             }
             is PictureOfTheDayAppState.Loading -> {
 
             }
             is PictureOfTheDayAppState.Success -> {
-                binding.imageView.load(pictureOfTheDayData.serverResponse.url){
+                binding.imageView.load(pictureOfTheDay.serverResponse.url){
                     placeholder(R.drawable.ic_no_photo_vector)
                 }
             }

@@ -3,7 +3,7 @@ package com.example.materialdesignapp.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-//import com.example.materialdesignapp.BuildConfig
+import com.example.materialdesignapp.BuildConfig
 
 import com.example.materialdesignapp.Repo.PictureOfTheDayDTO
 import com.example.materialdesignapp.Repo.PictureOfTheDayRetrofitImpl
@@ -21,12 +21,10 @@ class PictureOfTheDayViewModel(
         return liveData
     }
 
-    val NASA_API_KEY = "Mjn3t7TlGuEdjzJGh8SWeHcT5p1fUbDeRZAevt6q"
-
     fun sendRequest() {
         liveData.postValue(PictureOfTheDayAppState.Loading(null))
-        pictureOfTheDayRetrofitImpl.getRetrofitImpl().getPictureOfTheDay(NASA_API_KEY)
-            .enqueue( //BuildConfig.NASA_API_KEY
+        pictureOfTheDayRetrofitImpl.getRetrofitImpl().getPictureOfTheDay(BuildConfig.NASA_API_KEY)
+            .enqueue(
                 object : Callback<PictureOfTheDayDTO> {
                     override fun onResponse(
                         call: Call<PictureOfTheDayDTO>,
