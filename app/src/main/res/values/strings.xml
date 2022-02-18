@@ -9,5 +9,8 @@
     <string name="settings">settings</string>
     <string name="search">Search</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="chip_day_before_yesterday_text">Day before yesterday</string>
+    <string name="chip_yesterday_text">Yesterday</string>
+    <string name="chip_today_text">Today</string>
 
 </resources>

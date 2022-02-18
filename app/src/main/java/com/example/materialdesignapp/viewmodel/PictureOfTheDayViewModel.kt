@@ -4,14 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.materialdesignapp.BuildConfig
-
 import com.example.materialdesignapp.Repo.PictureOfTheDayDTO
 import com.example.materialdesignapp.Repo.PictureOfTheDayRetrofitImpl
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.text.SimpleDateFormat
-import java.util.*
 
 class PictureOfTheDayViewModel(
 
@@ -23,12 +20,13 @@ class PictureOfTheDayViewModel(
         return liveData
     }
 
-    fun sendRequest(day:String) {
+    fun sendRequest(day: String) {
         liveData.postValue(PictureOfTheDayAppState.Loading(null))
 
 
 
-        pictureOfTheDayRetrofitImpl.getRetrofitImpl().getPictureOfTheDay(day,BuildConfig.NASA_API_KEY)
+        pictureOfTheDayRetrofitImpl.getRetrofitImpl()
+            .getPictureOfTheDay(day, BuildConfig.NASA_API_KEY)
             .enqueue(
                 object : Callback<PictureOfTheDayDTO> {
                     override fun onResponse(

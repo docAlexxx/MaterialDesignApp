@@ -22,7 +22,6 @@ import com.example.materialdesignapp.viewmodel.PictureOfTheDayAppState
 import com.example.materialdesignapp.viewmodel.PictureOfTheDayViewModel
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.chip.Chip
 import com.google.android.material.snackbar.Snackbar
 import java.text.SimpleDateFormat
 import java.util.*

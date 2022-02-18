@@ -8,7 +8,7 @@ class PictureOfTheDayRetrofitImpl {
 
     private val baseUrl = "https://api.nasa.gov/"
 
-    fun getRetrofitImpl():PictureOfTheDayAPI{
+    fun getRetrofitImpl(): PictureOfTheDayAPI {
         val podRetrofitImpl = Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))

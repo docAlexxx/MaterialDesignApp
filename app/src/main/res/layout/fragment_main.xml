@@ -51,19 +51,19 @@
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Day before yesterday" />
+                android:text="@string/chip_day_before_yesterday_text" />
 
             <com.google.android.material.chip.Chip
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Yesterday" />
+                android:text="@string/chip_yesterday_text" />
 
             <com.google.android.material.chip.Chip
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Today" />
+                android:text="@string/chip_today_text" />
 
         </com.google.android.material.chip.ChipGroup>
 
