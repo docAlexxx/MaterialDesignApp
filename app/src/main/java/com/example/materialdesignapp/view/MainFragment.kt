@@ -22,11 +22,15 @@ import com.example.materialdesignapp.viewmodel.PictureOfTheDayAppState
 import com.example.materialdesignapp.viewmodel.PictureOfTheDayViewModel
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.chip.Chip
 import com.google.android.material.snackbar.Snackbar
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::inflate) {
 
     lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
+    lateinit var day: String
     var isMainScreen = true
 
     override val viewModel: PictureOfTheDayViewModel by lazy {
@@ -38,7 +42,10 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
         viewModel.getData().observe(viewLifecycleOwner, Observer {
             renderData(it)
         })
-        viewModel.sendRequest()
+        //  day= SimpleDateFormat("yyyy-MM-dd").format(Date())
+        //  viewModel.sendRequest(day)
+
+        getPictureOfTheDay(0)
 
         binding.inputLayout.setEndIconOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW).apply {
@@ -53,6 +60,8 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
         setHasOptionsMenu(true)
 
         changeScreen()
+
+        chipChoise()
     }
 
     fun bottomSheetCreate() {
@@ -82,6 +91,15 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
 
     }
 
+    fun getPictureOfTheDay(daysDiff: Int) {
+        val calendar = Calendar.getInstance()
+        calendar.add(Calendar.DAY_OF_YEAR, -daysDiff)
+
+        day = SimpleDateFormat("yyyy-MM-dd").format(calendar.time)
+        viewModel.sendRequest(day)
+
+    }
+
     private fun showSnackBarWithoutAction(text: String) {
         Snackbar.make(binding.root, text, Snackbar.LENGTH_SHORT).show()
     }
@@ -98,8 +116,10 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
                 binding.imageView.load(pictureOfTheDay.serverResponse.url) {
                     placeholder(R.drawable.ic_no_photo_vector)
                 }
-                binding.included.bottomSheetDescriptionHeader.text=pictureOfTheDay.serverResponse.title
-                binding.included.bottomSheetDescription.text=pictureOfTheDay.serverResponse.explanation
+                binding.included.bottomSheetDescriptionHeader.text =
+                    pictureOfTheDay.serverResponse.title
+                binding.included.bottomSheetDescription.text =
+                    pictureOfTheDay.serverResponse.explanation
 
             }
         }
@@ -146,6 +166,30 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
                 binding.bottomAppBar.replaceMenu(R.menu.menu_bottom_bar)
             }
             isMainScreen = !isMainScreen
+        }
+
+    }
+
+
+    fun chipChoise() {
+        binding.chipGroup.setOnCheckedChangeListener { group, checkedId ->
+            // val idCheck=  binding.chipGroup.findViewById<Chip>(checkedId)?.let { it ->
+            when (checkedId) {
+                1 -> {
+                    getPictureOfTheDay(2)
+                }
+                2 -> {
+                    getPictureOfTheDay(1)
+                }
+                3 -> {
+                    getPictureOfTheDay(0)
+                }
+            }
+            Toast.makeText(requireContext(), "${checkedId}", Toast.LENGTH_SHORT).show()
+
+            //       Toast.makeText(requireContext(), "${it.text} ${checkedId}", Toast.LENGTH_SHORT)
+            //           .show()
+            //    }
         }
 
     }

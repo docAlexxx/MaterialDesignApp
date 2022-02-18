@@ -10,6 +10,8 @@ import com.example.materialdesignapp.Repo.PictureOfTheDayRetrofitImpl
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.util.*
 
 class PictureOfTheDayViewModel(
 
@@ -21,9 +23,12 @@ class PictureOfTheDayViewModel(
         return liveData
     }
 
-    fun sendRequest() {
+    fun sendRequest(day:String) {
         liveData.postValue(PictureOfTheDayAppState.Loading(null))
-        pictureOfTheDayRetrofitImpl.getRetrofitImpl().getPictureOfTheDay(BuildConfig.NASA_API_KEY)
+
+
+
+        pictureOfTheDayRetrofitImpl.getRetrofitImpl().getPictureOfTheDay(day,BuildConfig.NASA_API_KEY)
             .enqueue(
                 object : Callback<PictureOfTheDayDTO> {
                     override fun onResponse(
