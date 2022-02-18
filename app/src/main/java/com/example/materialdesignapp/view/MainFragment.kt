@@ -5,7 +5,11 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -40,6 +44,9 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
         }
 
         bottomSheetCreate()
+
+        (requireActivity() as MainActivity).setSupportActionBar(binding.bottomAppBar)
+        setHasOptionsMenu(true)
     }
 
     fun bottomSheetCreate(){
@@ -89,8 +96,25 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
     }
 
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_bottom_bar, menu)
+    }
 
-
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.app_bar_fav -> {
+                Toast.makeText(requireContext(), "app_bar_fav", Toast.LENGTH_SHORT).show()
+            }
+            R.id.app_bar_settings -> {
+                Toast.makeText(requireContext(), "app_bar_settings", Toast.LENGTH_SHORT).show()
+            }
+            android.R.id.home -> {
+                Toast.makeText(requireContext(), "home", Toast.LENGTH_SHORT).show()
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
     companion object {
 
