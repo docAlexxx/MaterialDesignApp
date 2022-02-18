@@ -4,7 +4,9 @@ package com.example.materialdesignapp.view
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import coil.load
@@ -13,9 +15,12 @@ import com.example.materialdesignapp.databinding.FragmentMainBinding
 import com.example.materialdesignapp.utils.BindingFragment
 import com.example.materialdesignapp.viewmodel.PictureOfTheDayAppState
 import com.example.materialdesignapp.viewmodel.PictureOfTheDayViewModel
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.snackbar.Snackbar
 
 class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::inflate) {
+
+    lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
 
     override val viewModel: PictureOfTheDayViewModel by lazy {
         ViewModelProvider(this).get(PictureOfTheDayViewModel::class.java)
@@ -33,6 +38,38 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
                 data  = Uri.parse("https://en.wikipedia.org/wiki/${binding.inputEditText.text.toString()}")
             })
         }
+
+        bottomSheetCreate()
+    }
+
+    fun bottomSheetCreate(){
+        bottomSheetBehavior= BottomSheetBehavior.from(binding.included.bottomSheetContainer)
+        bottomSheetBehavior.maxHeight=5000
+        bottomSheetBehavior.peekHeight=200
+//        bottomSheetBehavior.state = BottomSheetBehavior.STATE_HALF_EXPANDED
+
+        bottomSheetBehavior.addBottomSheetCallback( object : BottomSheetBehavior.BottomSheetCallback(){
+            override fun onStateChanged(bottomSheet: View, newState: Int) {
+                when (newState){
+                    BottomSheetBehavior.STATE_DRAGGING -> showSnackBarWithoutAction("Drag")
+                    BottomSheetBehavior.STATE_COLLAPSED -> showSnackBarWithoutAction("collapse")
+                    BottomSheetBehavior.STATE_EXPANDED -> showSnackBarWithoutAction("Open!")
+                    BottomSheetBehavior.STATE_HALF_EXPANDED -> showSnackBarWithoutAction("On Half")
+                    BottomSheetBehavior.STATE_HIDDEN -> showSnackBarWithoutAction("Hide!")
+                    BottomSheetBehavior.STATE_SETTLING -> showSnackBarWithoutAction("settling")
+                }
+            }
+
+            override fun onSlide(bottomSheet: View, slideOffset: Float) {
+                Log.d("mylogs", "slideOffset $slideOffset")
+            }
+
+        })
+
+    }
+
+    private fun showSnackBarWithoutAction(text: String) {
+        Snackbar.make(binding.root, text, Snackbar.LENGTH_SHORT).show()
     }
 
     private fun renderData(pictureOfTheDay: PictureOfTheDayAppState) {
@@ -50,6 +87,10 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
             }
         }
     }
+
+
+
+
 
     companion object {
 
