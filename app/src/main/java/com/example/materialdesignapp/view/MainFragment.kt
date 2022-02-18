@@ -58,7 +58,7 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
     fun bottomSheetCreate() {
         bottomSheetBehavior = BottomSheetBehavior.from(binding.included.bottomSheetContainer)
         bottomSheetBehavior.maxHeight = 5000
-        bottomSheetBehavior.peekHeight = 200
+        bottomSheetBehavior.peekHeight = 500
 //        bottomSheetBehavior.state = BottomSheetBehavior.STATE_HALF_EXPANDED
 
         bottomSheetBehavior.addBottomSheetCallback(object :
@@ -98,6 +98,9 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
                 binding.imageView.load(pictureOfTheDay.serverResponse.url) {
                     placeholder(R.drawable.ic_no_photo_vector)
                 }
+                binding.included.bottomSheetDescriptionHeader.text=pictureOfTheDay.serverResponse.title
+                binding.included.bottomSheetDescription.text=pictureOfTheDay.serverResponse.explanation
+
             }
         }
     }
