@@ -29,6 +29,7 @@ class BottomNavigationDrawerFragment: BottomSheetDialogFragment() {
             when(menu.itemId){
                 R.id.navigation_one -> {
                     Toast.makeText(requireContext(), "navigation_one", Toast.LENGTH_SHORT).show()
+                          requireActivity().supportFragmentManager.popBackStack()
                 }
                 R.id.navigation_two -> {
                     Toast.makeText(requireContext(), "navigation_two", Toast.LENGTH_SHORT).show()

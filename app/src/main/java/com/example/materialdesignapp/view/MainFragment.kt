@@ -11,6 +11,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import coil.load
@@ -19,12 +20,14 @@ import com.example.materialdesignapp.databinding.FragmentMainBinding
 import com.example.materialdesignapp.utils.BindingFragment
 import com.example.materialdesignapp.viewmodel.PictureOfTheDayAppState
 import com.example.materialdesignapp.viewmodel.PictureOfTheDayViewModel
+import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.snackbar.Snackbar
 
 class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::inflate) {
 
     lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
+    var isMainScreen = true
 
     override val viewModel: PictureOfTheDayViewModel by lazy {
         ViewModelProvider(this).get(PictureOfTheDayViewModel::class.java)
@@ -39,7 +42,8 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
 
         binding.inputLayout.setEndIconOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW).apply {
-                data  = Uri.parse("https://en.wikipedia.org/wiki/${binding.inputEditText.text.toString()}")
+                data =
+                    Uri.parse("https://en.wikipedia.org/wiki/${binding.inputEditText.text.toString()}")
             })
         }
 
@@ -47,17 +51,20 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
 
         (requireActivity() as MainActivity).setSupportActionBar(binding.bottomAppBar)
         setHasOptionsMenu(true)
+
+        changeScreen()
     }
 
-    fun bottomSheetCreate(){
-        bottomSheetBehavior= BottomSheetBehavior.from(binding.included.bottomSheetContainer)
-        bottomSheetBehavior.maxHeight=5000
-        bottomSheetBehavior.peekHeight=200
+    fun bottomSheetCreate() {
+        bottomSheetBehavior = BottomSheetBehavior.from(binding.included.bottomSheetContainer)
+        bottomSheetBehavior.maxHeight = 5000
+        bottomSheetBehavior.peekHeight = 200
 //        bottomSheetBehavior.state = BottomSheetBehavior.STATE_HALF_EXPANDED
 
-        bottomSheetBehavior.addBottomSheetCallback( object : BottomSheetBehavior.BottomSheetCallback(){
+        bottomSheetBehavior.addBottomSheetCallback(object :
+            BottomSheetBehavior.BottomSheetCallback() {
             override fun onStateChanged(bottomSheet: View, newState: Int) {
-                when (newState){
+                when (newState) {
                     BottomSheetBehavior.STATE_DRAGGING -> showSnackBarWithoutAction("Drag")
                     BottomSheetBehavior.STATE_COLLAPSED -> showSnackBarWithoutAction("collapse")
                     BottomSheetBehavior.STATE_EXPANDED -> showSnackBarWithoutAction("Open!")
@@ -88,7 +95,7 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
 
             }
             is PictureOfTheDayAppState.Success -> {
-                binding.imageView.load(pictureOfTheDay.serverResponse.url){
+                binding.imageView.load(pictureOfTheDay.serverResponse.url) {
                     placeholder(R.drawable.ic_no_photo_vector)
                 }
             }
@@ -110,15 +117,40 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
                 Toast.makeText(requireContext(), "app_bar_settings", Toast.LENGTH_SHORT).show()
             }
             android.R.id.home -> {
-                BottomNavigationDrawerFragment().show(requireActivity().supportFragmentManager,"tag")
+                BottomNavigationDrawerFragment().show(
+                    requireActivity().supportFragmentManager,
+                    "tag"
+                )
             }
         }
         return super.onOptionsItemSelected(item)
     }
 
+    fun changeScreen() {
+        binding.fab.setOnClickListener {
+            if (isMainScreen) {
+                binding.bottomAppBar.navigationIcon = null
+                binding.bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
+                binding.fab.setImageResource(R.drawable.ic_back_fab)
+                binding.bottomAppBar.replaceMenu(R.menu.menu_bottom_bar_other_screen)
+            } else {
+                binding.bottomAppBar.navigationIcon = ContextCompat.getDrawable(
+                    requireContext(),
+                    R.drawable.ic_hamburger_menu_bottom_bar
+                )
+                binding.bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
+                binding.fab.setImageResource(R.drawable.ic_plus_fab)
+                binding.bottomAppBar.replaceMenu(R.menu.menu_bottom_bar)
+            }
+            isMainScreen = !isMainScreen
+        }
+
+    }
+
+
     companion object {
 
         @JvmStatic
-        fun newInstance() =  MainFragment()
+        fun newInstance() = MainFragment()
     }
 }
