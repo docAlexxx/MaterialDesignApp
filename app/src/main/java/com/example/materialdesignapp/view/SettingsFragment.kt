@@ -2,28 +2,46 @@ package com.example.materialdesignapp.view
 
 import android.os.Bundle
 import android.view.View
+import com.example.materialdesignapp.R
 import com.example.materialdesignapp.databinding.FragmentSettingsBinding
 import com.example.materialdesignapp.utils.BindingFragment
-import com.google.android.material.chip.Chip
 
-class SettingsFragment : BindingFragment<FragmentSettingsBinding>(FragmentSettingsBinding::inflate){
+var curTheme=R.style.MyThemeMars
+
+class SettingsFragment :
+    BindingFragment<FragmentSettingsBinding>(FragmentSettingsBinding::inflate) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.chipGroup.setOnCheckedChangeListener { group, checkedId ->
-            binding.chipGroup.findViewById<Chip>(checkedId)?.let{ it->
-               // Toast.makeText(requireContext(), "${it.text} ${checkedId}", Toast.LENGTH_SHORT).show()
+
+        themeChoose()
+    }
+
+    fun themeChoose() {
+        binding.chipGroupTheme.setOnCheckedChangeListener { group, checkedId ->
+            with(getActivity()) {
+                when (checkedId) {
+                    4 -> {
+                        curTheme=R.style.MyThemeMars
+                    }
+                    5 -> {
+                        curTheme=R.style.MyThemeSky
+                    }
+                    6 -> {
+                        curTheme=R.style.MyThemeEarth
+                    }
+                }
+                this?.recreate()
             }
         }
-
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance() = SettingsFragment()
-    }
+        companion object {
+            @JvmStatic
+            fun newInstance() = SettingsFragment()
+        }
 
-    override val viewModel: Any
+        override val viewModel: Any
         get() = TODO("Not yet implemented")
 
-}
+    }
