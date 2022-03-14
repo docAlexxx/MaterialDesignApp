@@ -134,7 +134,8 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
                 Toast.makeText(requireContext(), "app_bar_fav", Toast.LENGTH_SHORT).show()
             }
             R.id.app_bar_settings -> {
-                Toast.makeText(requireContext(), "app_bar_settings", Toast.LENGTH_SHORT).show()
+                requireActivity().supportFragmentManager.beginTransaction().replace(R.id.container,SettingsFragment.newInstance()).addToBackStack("").commit()
+               // Toast.makeText(requireContext(), "app_bar_settings", Toast.LENGTH_SHORT).show()
             }
             android.R.id.home -> {
                 BottomNavigationDrawerFragment().show(

@@ -33,4 +33,13 @@
         <item name="mySecondColor">@color/light_green</item>
     </style>
 
+    <style name="myChipStyle" parent="Widget.MaterialComponents.Chip.Action">
+        <item name="android:fontFamily">@font/astro</item>
+        <item name="chipStrokeColor">@color/light_gray</item>
+        <item name="android:windowBackground">@color/light_gray</item>
+        <item name="cornerSize">4dp</item>
+        <item name="cornerFamily">cut</item>
+    </style>
+
+
 </resources>
