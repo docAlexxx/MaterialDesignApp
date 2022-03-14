@@ -73,12 +73,12 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
             BottomSheetBehavior.BottomSheetCallback() {
             override fun onStateChanged(bottomSheet: View, newState: Int) {
                 when (newState) {
-                    BottomSheetBehavior.STATE_DRAGGING -> showSnackBarWithoutAction("Drag")
-                    BottomSheetBehavior.STATE_COLLAPSED -> showSnackBarWithoutAction("collapse")
+                  //  BottomSheetBehavior.STATE_DRAGGING -> showSnackBarWithoutAction("Drag")
+                  //  BottomSheetBehavior.STATE_COLLAPSED -> showSnackBarWithoutAction("collapse")
                     BottomSheetBehavior.STATE_EXPANDED -> showSnackBarWithoutAction("Open!")
-                    BottomSheetBehavior.STATE_HALF_EXPANDED -> showSnackBarWithoutAction("On Half")
+                  //  BottomSheetBehavior.STATE_HALF_EXPANDED -> showSnackBarWithoutAction("On Half")
                     BottomSheetBehavior.STATE_HIDDEN -> showSnackBarWithoutAction("Hide!")
-                    BottomSheetBehavior.STATE_SETTLING -> showSnackBarWithoutAction("settling")
+                  //  BottomSheetBehavior.STATE_SETTLING -> showSnackBarWithoutAction("settling")
                 }
             }
 
@@ -119,11 +119,9 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
                     pictureOfTheDay.serverResponse.title
                 binding.included.bottomSheetDescription.text =
                     pictureOfTheDay.serverResponse.explanation
-
             }
         }
     }
-
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
@@ -184,11 +182,7 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
                     getPictureOfTheDay(0)
                 }
             }
-            Toast.makeText(requireContext(), "${checkedId}", Toast.LENGTH_SHORT).show()
-
-            //       Toast.makeText(requireContext(), "${it.text} ${checkedId}", Toast.LENGTH_SHORT)
-            //           .show()
-            //    }
+          //  Toast.makeText(requireContext(), "${checkedId}", Toast.LENGTH_SHORT).show()
         }
 
     }

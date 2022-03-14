@@ -1,16 +1,36 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.MaterialDesignApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">#089A77</item>
-        <item name="colorPrimaryVariant">#0ABFBF</item>
-        <item name="colorOnPrimary">#3F51B5</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">#2752D1</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+
+    <style name="MyBaseTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:navigationBarColor">?myMainColor</item>
+        <item name="colorPrimary">?myMainColor</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">?myMainColor</item>
+        <item name="colorOnPrimaryContainer">?myMainColor</item>
+        <item name="colorPrimaryInverse">?myMainColor</item>
+        <item name="colorSecondary">?mySecondColor</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">?mySecondColor</item>
+        <item name="colorOnSecondaryContainer">?mySecondColor</item>
+        <item name="colorTertiary">?mySecondColor</item>
+        <item name="colorOnTertiary">@color/white</item>
+        <item name="colorTertiaryContainer">?myMainColor</item>
+        <item name="colorOnTertiaryContainer">?myMainColor</item>
+        <item name="android:statusBarColor">?mySecondColor</item>
     </style>
+
+    <style name="MyThemeMars" parent="MyBaseTheme">
+        <item name="myMainColor">@color/red</item>
+        <item name="mySecondColor">@color/light_red</item>
+    </style>
+
+    <style name="MyThemeSky" parent="MyBaseTheme">
+        <item name="myMainColor">@color/blue</item>
+        <item name="mySecondColor">@color/light_blue</item>
+    </style>
+
+    <style name="MyThemeEarth" parent="MyBaseTheme">
+        <item name="myMainColor">@color/green</item>
+        <item name="mySecondColor">@color/light_green</item>
+    </style>
+
 </resources>
