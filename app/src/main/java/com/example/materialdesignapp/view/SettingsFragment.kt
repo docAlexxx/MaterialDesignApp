@@ -22,7 +22,7 @@ class SettingsFragment :
             with(getActivity()) {
                 when (checkedId) {
                     4 -> {
-                        curTheme = R.style.MyThemeMars
+                       curTheme = R.style.MyThemeMars
                     }
                     5 -> {
                         curTheme = R.style.MyThemeSky
