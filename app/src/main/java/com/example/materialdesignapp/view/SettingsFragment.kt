@@ -6,7 +6,7 @@ import com.example.materialdesignapp.R
 import com.example.materialdesignapp.databinding.FragmentSettingsBinding
 import com.example.materialdesignapp.utils.BindingFragment
 
-var curTheme=R.style.MyThemeMars
+var curTheme = R.style.MyThemeMars
 
 class SettingsFragment :
     BindingFragment<FragmentSettingsBinding>(FragmentSettingsBinding::inflate) {
@@ -22,13 +22,13 @@ class SettingsFragment :
             with(getActivity()) {
                 when (checkedId) {
                     4 -> {
-                        curTheme=R.style.MyThemeMars
+                        curTheme = R.style.MyThemeMars
                     }
                     5 -> {
-                        curTheme=R.style.MyThemeSky
+                        curTheme = R.style.MyThemeSky
                     }
                     6 -> {
-                        curTheme=R.style.MyThemeEarth
+                        curTheme = R.style.MyThemeEarth
                     }
                 }
                 this?.recreate()
@@ -36,12 +36,12 @@ class SettingsFragment :
         }
     }
 
-        companion object {
-            @JvmStatic
-            fun newInstance() = SettingsFragment()
-        }
+    companion object {
+        @JvmStatic
+        fun newInstance() = SettingsFragment()
+    }
 
-        override val viewModel: Any
+    override val viewModel: Any
         get() = TODO("Not yet implemented")
 
-    }
+}
