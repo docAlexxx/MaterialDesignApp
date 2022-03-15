@@ -31,6 +31,7 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
     lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
     lateinit var day: String
     var isMainScreen = true
+    var isMain = true
 
     override val viewModel: PictureOfTheDayViewModel by lazy {
         ViewModelProvider(this).get(PictureOfTheDayViewModel::class.java)
@@ -61,6 +62,7 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
         changeScreen()
 
         chipChoise()
+
     }
 
     fun bottomSheetCreate() {
@@ -73,19 +75,18 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
             BottomSheetBehavior.BottomSheetCallback() {
             override fun onStateChanged(bottomSheet: View, newState: Int) {
                 when (newState) {
-                  //  BottomSheetBehavior.STATE_DRAGGING -> showSnackBarWithoutAction("Drag")
-                  //  BottomSheetBehavior.STATE_COLLAPSED -> showSnackBarWithoutAction("collapse")
+                    //  BottomSheetBehavior.STATE_DRAGGING -> showSnackBarWithoutAction("Drag")
+                    //  BottomSheetBehavior.STATE_COLLAPSED -> showSnackBarWithoutAction("collapse")
                     BottomSheetBehavior.STATE_EXPANDED -> showSnackBarWithoutAction("Open!")
-                  //  BottomSheetBehavior.STATE_HALF_EXPANDED -> showSnackBarWithoutAction("On Half")
+                    //  BottomSheetBehavior.STATE_HALF_EXPANDED -> showSnackBarWithoutAction("On Half")
                     BottomSheetBehavior.STATE_HIDDEN -> showSnackBarWithoutAction("Hide!")
-                  //  BottomSheetBehavior.STATE_SETTLING -> showSnackBarWithoutAction("settling")
+                    //  BottomSheetBehavior.STATE_SETTLING -> showSnackBarWithoutAction("settling")
                 }
             }
 
             override fun onSlide(bottomSheet: View, slideOffset: Float) {
                 Log.d("mylogs", "slideOffset $slideOffset")
             }
-
         })
 
     }
@@ -134,8 +135,10 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
                 Toast.makeText(requireContext(), "app_bar_fav", Toast.LENGTH_SHORT).show()
             }
             R.id.app_bar_settings -> {
-                requireActivity().supportFragmentManager.beginTransaction().replace(R.id.container,SettingsFragment.newInstance()).addToBackStack("").commit()
-               // Toast.makeText(requireContext(), "app_bar_settings", Toast.LENGTH_SHORT).show()
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(R.id.container, SettingsFragment.newInstance()).addToBackStack("")
+                    .commit()
+                // Toast.makeText(requireContext(), "app_bar_settings", Toast.LENGTH_SHORT).show()
             }
             android.R.id.home -> {
                 BottomNavigationDrawerFragment().show(
@@ -168,7 +171,6 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
 
     }
 
-
     fun chipChoise() {
         binding.chipGroup.setOnCheckedChangeListener { group, checkedId ->
             // val idCheck=  binding.chipGroup.findViewById<Chip>(checkedId)?.let { it ->
@@ -183,11 +185,10 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
                     getPictureOfTheDay(0)
                 }
             }
-          //  Toast.makeText(requireContext(), "${checkedId}", Toast.LENGTH_SHORT).show()
+            //  Toast.makeText(requireContext(), "${checkedId}", Toast.LENGTH_SHORT).show()
         }
 
     }
-
 
     companion object {
 
