@@ -1,4 +1,4 @@
-package com.example.materialdesignapp.view
+package com.example.materialdesignapp.view.main
 
 
 import android.content.Intent
@@ -18,6 +18,8 @@ import coil.load
 import com.example.materialdesignapp.R
 import com.example.materialdesignapp.databinding.FragmentMainBinding
 import com.example.materialdesignapp.utils.BindingFragment
+import com.example.materialdesignapp.view.MainActivity
+import com.example.materialdesignapp.view.SettingsFragment
 import com.example.materialdesignapp.viewmodel.PictureOfTheDayAppState
 import com.example.materialdesignapp.viewmodel.PictureOfTheDayViewModel
 import com.google.android.material.bottomappbar.BottomAppBar

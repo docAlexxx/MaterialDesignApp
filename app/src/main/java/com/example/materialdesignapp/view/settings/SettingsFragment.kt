@@ -1,4 +1,4 @@
-package com.example.materialdesignapp.view
+package com.example.materialdesignapp.view.settings
 
 import android.os.Bundle
 import android.view.View
@@ -22,7 +22,7 @@ class SettingsFragment :
             with(getActivity()) {
                 when (checkedId) {
                     4 -> {
-                       curTheme = R.style.MyThemeMars
+                        curTheme = R.style.MyThemeMars
                     }
                     5 -> {
                         curTheme = R.style.MyThemeSky
