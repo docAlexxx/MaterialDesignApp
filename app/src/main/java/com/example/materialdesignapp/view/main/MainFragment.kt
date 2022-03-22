@@ -33,7 +33,6 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
     lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
     lateinit var day: String
     var isMainScreen = true
-    var isMain = true
 
     override val viewModel: PictureOfTheDayViewModel by lazy {
         ViewModelProvider(this).get(PictureOfTheDayViewModel::class.java)

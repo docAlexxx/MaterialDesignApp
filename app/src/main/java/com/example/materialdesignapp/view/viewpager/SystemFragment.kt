@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.materialdesignapp.R
 
 
-class SystemFragment: Fragment() {
+class SystemFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,

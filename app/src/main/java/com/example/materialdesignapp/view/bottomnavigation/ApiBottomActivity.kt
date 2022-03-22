@@ -8,6 +8,7 @@ import com.example.materialdesignapp.databinding.ActivityApiBottomBinding
 import com.example.materialdesignapp.view.viewpager.EarthFragment
 import com.example.materialdesignapp.view.viewpager.MarsFragment
 import com.example.materialdesignapp.view.viewpager.SystemFragment
+import com.google.android.material.badge.BadgeDrawable
 
 class ApiBottomActivity : AppCompatActivity() {
 
@@ -36,10 +37,16 @@ class ApiBottomActivity : AppCompatActivity() {
             }
         }
 
+        val badge = binding.bottomNavigationView.getOrCreateBadge(R.id.bottom_view_system)
+        badge.number = 100
+        badge.maxCharacterCount = 3
+        badge.badgeGravity = BadgeDrawable.TOP_START
+
     }
 
-    fun navigateTo(fragment: Fragment){
-        supportFragmentManager.beginTransaction().replace(R.id.container,fragment).commit()
+    fun navigateTo(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().replace(R.id.container, fragment).commit()
     }
+
 
 }
