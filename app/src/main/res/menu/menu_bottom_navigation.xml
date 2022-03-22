@@ -8,6 +8,6 @@
         <item
             android:id="@+id/navigation_two"
             android:icon="@drawable/ic_send"
-            android:title="Send" />
+            android:title="ApiBottom" />
     </group>
 </menu>
