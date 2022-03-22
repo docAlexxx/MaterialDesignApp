@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.example.materialdesignapp.R
 import com.example.materialdesignapp.databinding.BottomNavigationLayoutBinding
+import com.example.materialdesignapp.view.viewpager.ApiFragment
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
@@ -28,8 +30,9 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
         binding.navigationView.setNavigationItemSelectedListener { menu ->
             when (menu.itemId) {
                 R.id.navigation_one -> {
-                    Toast.makeText(requireContext(), "navigation_one", Toast.LENGTH_SHORT).show()
-                    requireActivity().supportFragmentManager.popBackStack()
+                    //   Toast.makeText(requireContext(), "navigation_one", Toast.LENGTH_SHORT).show()
+                    //   requireActivity().supportFragmentManager.popBackStack()
+                    openFragment(ApiFragment())
                 }
                 R.id.navigation_two -> {
                     Toast.makeText(requireContext(), "navigation_two", Toast.LENGTH_SHORT).show()
@@ -38,4 +41,13 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
             true
         }
     }
+
+    private fun openFragment(fragment: Fragment) {
+        val fragmentManager = requireActivity().supportFragmentManager
+        val transaction = fragmentManager.beginTransaction()
+        transaction.replace(R.id.container, fragment)
+            .addToBackStack("")
+            .commit()
+    }
+
 }
