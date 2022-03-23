@@ -9,5 +9,14 @@
             android:id="@+id/navigation_two"
             android:icon="@drawable/ic_send"
             android:title="ApiBottom" />
+        <item
+            android:id="@+id/constraint"
+            android:icon="@android:drawable/ic_menu_gallery"
+            android:title="ConstraintLayout" />
+        <item
+            android:id="@+id/coordinator"
+            android:icon="@android:drawable/ic_menu_agenda"
+            android:title="CoordinatorLayout" />
+
     </group>
 </menu>

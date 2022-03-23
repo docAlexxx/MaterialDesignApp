@@ -42,6 +42,8 @@ class ApiBottomActivity : AppCompatActivity() {
         badge.maxCharacterCount = 3
         badge.badgeGravity = BadgeDrawable.TOP_START
 
+        binding.bottomNavigationView.selectedItemId = R.id.bottom_view_system
+
     }
 
     fun navigateTo(fragment: Fragment) {
