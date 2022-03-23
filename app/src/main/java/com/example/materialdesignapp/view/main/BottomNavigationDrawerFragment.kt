@@ -10,6 +10,7 @@ import com.example.materialdesignapp.R
 import com.example.materialdesignapp.databinding.BottomNavigationLayoutBinding
 import com.example.materialdesignapp.view.bottomnavigation.ApiBottomActivity
 import com.example.materialdesignapp.view.layouts.ConstraintlayoutFragment
+import com.example.materialdesignapp.view.layouts.CoordinatorlayoutFragment
 import com.example.materialdesignapp.view.viewpager.ApiFragment
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
@@ -40,6 +41,9 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
                 }
                 R.id.constraint -> {
                     openFragment(ConstraintlayoutFragment())
+                }
+                R.id.coordinator -> {
+                    openFragment(CoordinatorlayoutFragment())
                 }
             }
             // BottomNavigationDrawerFragment().dismiss()
