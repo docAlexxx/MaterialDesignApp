@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.example.materialdesignapp.R
 import com.example.materialdesignapp.databinding.BottomNavigationLayoutBinding
 import com.example.materialdesignapp.view.bottomnavigation.ApiBottomActivity
+import com.example.materialdesignapp.view.layouts.ConstraintlayoutFragment
 import com.example.materialdesignapp.view.viewpager.ApiFragment
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
@@ -31,13 +32,14 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
         binding.navigationView.setNavigationItemSelectedListener { menu ->
             when (menu.itemId) {
                 R.id.navigation_one -> {
-                    //   Toast.makeText(requireContext(), "navigation_one", Toast.LENGTH_SHORT).show()
-                    //   requireActivity().supportFragmentManager.popBackStack()
                     openFragment(ApiFragment())
                 }
                 R.id.navigation_two -> {
                     // Toast.makeText(requireContext(), "navigation_two", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(requireContext(), ApiBottomActivity::class.java))
+                }
+                R.id.constraint -> {
+                    openFragment(ConstraintlayoutFragment())
                 }
             }
             // BottomNavigationDrawerFragment().dismiss()
