@@ -21,10 +21,9 @@
         android:layout_height="0dp"
         android:text="2"
         app:layout_constraintHeight_percent="0.1"
-        app:layout_constraintStart_toEndOf="@id/button_one"
-        app:layout_constraintEnd_toStartOf="@id/button_three"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.2" />
+        app:layout_constraintStart_toEndOf="@id/guideline_vertical1"
+        app:layout_constraintWidth_percent="0.2"
+        app:layout_constraintTop_toBottomOf="@id/barrier1"/>
 
     <Button
         android:id="@+id/button_three"
@@ -32,9 +31,11 @@
         android:layout_height="0dp"
         android:text="3"
         app:layout_constraintHeight_percent="0.1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.2" />
+        app:layout_constraintWidth_percent="0.2"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_horizontal1"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vertical2"
+        app:layout_constraintStart_toEndOf="@+id/guideline_vertical2"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_horizontal1"/>
 
 
 
@@ -54,9 +55,8 @@
         android:layout_height="0dp"
         android:text="5"
         app:layout_constraintHeight_percent="0.1"
-        app:layout_constraintStart_toEndOf="@id/button_four"
-        app:layout_constraintEnd_toStartOf="@id/button_six"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guideline_vertical1"
+        app:layout_constraintBottom_toTopOf="@id/barrier2"
         app:layout_constraintWidth_percent="0.2" />
 
     <Button
@@ -65,9 +65,65 @@
         android:layout_height="0dp"
         android:text="6"
         app:layout_constraintHeight_percent="0.1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_horizontal2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vertical2"
+        app:layout_constraintStart_toEndOf="@+id/guideline_vertical2"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_horizontal2"
         app:layout_constraintWidth_percent="0.2" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids = "button_one,button_three"/>
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids = "button_four,button_six"/>
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="button_one,button_three" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="button_four,button_six" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_horizontal1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_horizontal2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vertical1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vertical2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.75"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
