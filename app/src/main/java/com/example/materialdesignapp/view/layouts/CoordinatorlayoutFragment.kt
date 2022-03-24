@@ -6,7 +6,8 @@ import com.example.materialdesignapp.databinding.FragmentCoordinatorlayoutBindin
 import com.example.materialdesignapp.utils.BindingFragment
 
 class CoordinatorlayoutFragment : BindingFragment<FragmentCoordinatorlayoutBinding>(
-    FragmentCoordinatorlayoutBinding::inflate) {
+    FragmentCoordinatorlayoutBinding::inflate
+) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

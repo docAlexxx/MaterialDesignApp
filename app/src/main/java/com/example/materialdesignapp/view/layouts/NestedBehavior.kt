@@ -6,7 +6,8 @@ import android.view.View
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.google.android.material.appbar.AppBarLayout
 
-class NestedBehavior(context: Context, attributeSet: AttributeSet) : CoordinatorLayout.Behavior<View>(context,attributeSet) {
+class NestedBehavior(context: Context, attributeSet: AttributeSet) :
+    CoordinatorLayout.Behavior<View>(context, attributeSet) {
 
     override fun layoutDependsOn(
         parent: CoordinatorLayout,
@@ -22,7 +23,7 @@ class NestedBehavior(context: Context, attributeSet: AttributeSet) : Coordinator
         dependency: View
     ): Boolean {
         var bar = dependency as AppBarLayout
-        child.y = bar.height +bar.y
+        child.y = bar.height + bar.y
         return super.onDependentViewChanged(parent, child, dependency)
     }
 }

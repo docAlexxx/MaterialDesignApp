@@ -5,7 +5,8 @@ import android.view.View
 import com.example.materialdesignapp.databinding.FragmentConstraintlayoutBinding
 import com.example.materialdesignapp.utils.BindingFragment
 
-class ConstraintlayoutFragment: BindingFragment<FragmentConstraintlayoutBinding>(FragmentConstraintlayoutBinding::inflate) {
+class ConstraintlayoutFragment :
+    BindingFragment<FragmentConstraintlayoutBinding>(FragmentConstraintlayoutBinding::inflate) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
