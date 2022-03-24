@@ -43,7 +43,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-       >
+        app:layout_behavior=".view.layouts.NestedBehavior">
 
         <TextView
             android:layout_width="wrap_content"
@@ -57,9 +57,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="bottom|end"
+        app:layout_anchorGravity="bottom|center"
         android:backgroundTint="@color/green"
-        android:text="+"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:text="button"
+
+        app:layout_behavior=".view.layouts.ButtonBehavior"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
