@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.materialdesignapp.R
 import com.example.materialdesignapp.databinding.BottomNavigationLayoutBinding
+import com.example.materialdesignapp.view.animations.AnimationActivity
 import com.example.materialdesignapp.view.bottomnavigation.ApiBottomActivity
 import com.example.materialdesignapp.view.layouts.ConstraintlayoutFragment
 import com.example.materialdesignapp.view.layouts.CoordinatorlayoutFragment
@@ -45,7 +46,11 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
                 R.id.coordinator -> {
                     openFragment(CoordinatorlayoutFragment())
                 }
+                R.id.animations -> {
+                    startActivity(Intent(requireContext(), AnimationActivity::class.java))
+                }
             }
+
             // BottomNavigationDrawerFragment().dismiss()
             true
         }

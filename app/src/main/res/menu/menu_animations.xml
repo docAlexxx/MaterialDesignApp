@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bottom_transition"
+        android:icon="@android:drawable/ic_menu_revert"
+        android:title="TransitionSet" />
+
+    <item
+        android:id="@+id/bottom_slide"
+        android:icon="@android:drawable/ic_media_ff"
+        android:title="Slide" />
+
+    <item
+        android:id="@+id/bottom_explode"
+        android:icon="@android:drawable/btn_star"
+        android:title="Explode" />
+
+</menu>
