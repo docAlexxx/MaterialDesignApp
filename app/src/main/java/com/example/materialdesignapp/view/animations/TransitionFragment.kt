@@ -1,11 +1,9 @@
 package com.example.materialdesignapp.view.animations
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
-import androidx.transition.ChangeBounds
-import androidx.transition.Fade
-import androidx.transition.TransitionManager
-import androidx.transition.TransitionSet
+import androidx.transition.*
 import com.example.materialdesignapp.databinding.FragmentTransitionBinding
 import com.example.materialdesignapp.utils.BindingFragment
 
@@ -22,11 +20,14 @@ class TransitionFragment :
             val transitionSet = TransitionSet()
             val fade = Fade()
             val changeBounds = ChangeBounds()
-            fade.duration = 1000
-            changeBounds.duration = 1000
+            val slide = Slide(Gravity.START)
+            fade.duration = 2000
+            changeBounds.duration = 2000
+            slide.duration = 2000
             transitionSet.ordering = TransitionSet.ORDERING_TOGETHER
             transitionSet.addTransition(fade)
             transitionSet.addTransition(changeBounds)
+            transitionSet.addTransition(slide)
             TransitionManager.beginDelayedTransition(binding.transitionsContainer, transitionSet)
 
             textTopISVisible = !textTopISVisible
