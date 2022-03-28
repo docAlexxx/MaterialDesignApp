@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.materialdesignapp.R
 import com.example.materialdesignapp.databinding.ActivityAnimationsBinding
+import com.example.materialdesignapp.view.viewpager.EarthFragment
+import com.example.materialdesignapp.view.viewpager.MarsFragment
+import com.example.materialdesignapp.view.viewpager.SystemFragment
 
 class AnimationActivity : AppCompatActivity() {
 
@@ -18,7 +21,7 @@ class AnimationActivity : AppCompatActivity() {
         binding.bottomNavigationViewActivity.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.bottom_transition -> {
-
+                    navigateTo(TransitionFragment())
                     true
                 }
                 R.id.bottom_slide -> {
@@ -32,7 +35,7 @@ class AnimationActivity : AppCompatActivity() {
             }
         }
 
-        binding.bottomNavigationViewActivity.selectedItemId = R.id.bottom_transition
+          binding.bottomNavigationViewActivity.selectedItemId = R.id.bottom_transition
 
     }
 
