@@ -11,8 +11,8 @@
         android:title="Explode" />
 
     <item
-        android:id="@+id/bottom_"
+        android:id="@+id/bottom_motion"
         android:icon="@android:drawable/btn_star"
-        android:title="" />
+        android:title="Motion" />
 
 </menu>

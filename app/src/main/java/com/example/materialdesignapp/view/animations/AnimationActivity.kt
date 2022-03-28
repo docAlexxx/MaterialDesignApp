@@ -28,8 +28,8 @@ class AnimationActivity : AppCompatActivity() {
                     navigateTo(ExplodeFragment())
                     true
                 }
-                R.id.bottom_explode -> {
-
+                R.id.bottom_motion -> {
+                    navigateTo(MotionFragment())
                     true
                 }
                 else -> true
