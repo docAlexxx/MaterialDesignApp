@@ -24,7 +24,8 @@ class AnimationActivity : AppCompatActivity() {
                     navigateTo(TransitionFragment())
                     true
                 }
-                R.id.bottom_slide -> {
+                R.id.bottom_explode -> {
+                    navigateTo(ExplodeFragment())
                     true
                 }
                 R.id.bottom_explode -> {

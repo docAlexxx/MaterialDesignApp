@@ -6,13 +6,13 @@
         android:title="TransitionSet" />
 
     <item
-        android:id="@+id/bottom_slide"
+        android:id="@+id/bottom_explode"
         android:icon="@android:drawable/ic_media_ff"
-        android:title="Slide" />
+        android:title="Explode" />
 
     <item
-        android:id="@+id/bottom_explode"
+        android:id="@+id/bottom_"
         android:icon="@android:drawable/btn_star"
-        android:title="Explode" />
+        android:title="" />
 
 </menu>
