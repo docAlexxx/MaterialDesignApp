@@ -17,6 +17,10 @@
             android:id="@+id/coordinator"
             android:icon="@android:drawable/ic_menu_agenda"
             android:title="CoordinatorLayout" />
+        <item
+            android:id="@+id/animations"
+            android:icon="@android:drawable/presence_video_online"
+            android:title="Animations" />
 
     </group>
 </menu>

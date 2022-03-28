@@ -6,7 +6,7 @@ import com.example.materialdesignapp.R
 import com.example.materialdesignapp.databinding.FragmentSettingsBinding
 import com.example.materialdesignapp.utils.BindingFragment
 
-var curTheme = R.style.MyThemeMars
+var curTheme = R.style.MyThemeSky
 
 class SettingsFragment :
     BindingFragment<FragmentSettingsBinding>(FragmentSettingsBinding::inflate) {
