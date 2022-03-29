@@ -36,6 +36,10 @@ class AnimationActivity : AppCompatActivity() {
                     navigateTo(ObjectanimatorFragment())
                     true
                 }
+                R.id.bottom_constraint -> {
+                    navigateTo(ConstraintSetFragment())
+                    true
+                }
 
                 else -> true
             }
