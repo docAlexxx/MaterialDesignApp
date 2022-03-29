@@ -15,4 +15,9 @@
         android:icon="@android:drawable/btn_star"
         android:title="Motion" />
 
+    <item
+        android:id="@+id/bottom_object"
+        android:icon="@drawable/ic_system"
+        android:title="ObjectAnimator" />
+
 </menu>

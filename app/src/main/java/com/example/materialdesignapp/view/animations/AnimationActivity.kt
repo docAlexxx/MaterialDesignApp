@@ -32,6 +32,11 @@ class AnimationActivity : AppCompatActivity() {
                     navigateTo(MotionFragment())
                     true
                 }
+                R.id.bottom_object -> {
+                    navigateTo(ObjectanimatorFragment())
+                    true
+                }
+
                 else -> true
             }
         }
