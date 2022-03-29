@@ -6,11 +6,9 @@ import android.view.View
 import android.widget.FrameLayout
 import androidx.transition.ArcMotion
 import androidx.transition.ChangeBounds
-import androidx.transition.PathMotion
 import androidx.transition.TransitionManager
 import com.example.materialdesignapp.databinding.FragmentMotionBinding
 import com.example.materialdesignapp.utils.BindingFragment
-import com.google.android.material.transition.MaterialArcMotion
 
 class MotionFragment :
     BindingFragment<FragmentMotionBinding>(FragmentMotionBinding::inflate) {
@@ -34,29 +32,29 @@ class MotionFragment :
                 val paramsFour = buttonFour.layoutParams as FrameLayout.LayoutParams
 
                 when (buttonsPosition) {
-                    1-> {
-                        paramsOne.gravity=Gravity.BOTTOM or Gravity.START
-                        paramsTwo.gravity=Gravity.BOTTOM or Gravity.END
-                        paramsThree.gravity=Gravity.TOP or Gravity.END
-                        paramsFour.gravity=Gravity.TOP or Gravity.START
+                    1 -> {
+                        paramsOne.gravity = Gravity.BOTTOM or Gravity.START
+                        paramsTwo.gravity = Gravity.BOTTOM or Gravity.END
+                        paramsThree.gravity = Gravity.TOP or Gravity.END
+                        paramsFour.gravity = Gravity.TOP or Gravity.START
                     }
-                    2-> {
-                        paramsOne.gravity=Gravity.BOTTOM or Gravity.END
-                        paramsTwo.gravity=Gravity.TOP or Gravity.END
-                        paramsThree.gravity=Gravity.TOP or Gravity.START
-                        paramsFour.gravity=Gravity.BOTTOM or Gravity.START
+                    2 -> {
+                        paramsOne.gravity = Gravity.BOTTOM or Gravity.END
+                        paramsTwo.gravity = Gravity.TOP or Gravity.END
+                        paramsThree.gravity = Gravity.TOP or Gravity.START
+                        paramsFour.gravity = Gravity.BOTTOM or Gravity.START
                     }
-                    3-> {
-                        paramsOne.gravity=Gravity.TOP or Gravity.END
-                        paramsTwo.gravity=Gravity.TOP or Gravity.START
-                        paramsThree.gravity=Gravity.BOTTOM or Gravity.START
-                        paramsFour.gravity=Gravity.BOTTOM or Gravity.END
+                    3 -> {
+                        paramsOne.gravity = Gravity.TOP or Gravity.END
+                        paramsTwo.gravity = Gravity.TOP or Gravity.START
+                        paramsThree.gravity = Gravity.BOTTOM or Gravity.START
+                        paramsFour.gravity = Gravity.BOTTOM or Gravity.END
                     }
-                    4-> {
-                        paramsOne.gravity=Gravity.TOP or Gravity.START
-                        paramsTwo.gravity=Gravity.BOTTOM or Gravity.START
-                        paramsThree.gravity=Gravity.BOTTOM or Gravity.END
-                        paramsFour.gravity=Gravity.TOP or Gravity.END
+                    4 -> {
+                        paramsOne.gravity = Gravity.TOP or Gravity.START
+                        paramsTwo.gravity = Gravity.BOTTOM or Gravity.START
+                        paramsThree.gravity = Gravity.BOTTOM or Gravity.END
+                        paramsFour.gravity = Gravity.TOP or Gravity.END
                     }
 
                 }

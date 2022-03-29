@@ -44,7 +44,6 @@ class TransitionFragment :
             }
         }
 
-
     }
 
     override val viewModel: Any

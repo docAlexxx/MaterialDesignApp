@@ -25,12 +25,9 @@ class ObjectanimatorFragment :
 
         binding.fab.setOnClickListener {
 
-
             if (isHide) {
-
                 animateViews(0f, 405f, 0f, -130f, 0f, -260f, 0.5f)
                 changeViews(1f, 0.9f, true)
-
             } else {
                 animateViews(405f, 0f, -130f, 0f, -260f, 0f, 1f)
                 changeViews(0f, 0f, false)
@@ -67,11 +64,9 @@ class ObjectanimatorFragment :
         visibleViews(alphaMenu, clickable, binding.optionTwoContainer)
         visibleViews(alphaMenu, clickable, binding.optionOneContainer)
         visibleViews(alphaBack, clickable, binding.transparentBackground)
-
     }
 
     fun visibleViews(alphaView: Float, clickable: Boolean, element: View) {
-
         element.animate()
             .alpha(alphaView)
             .setDuration(duration)
@@ -81,13 +76,10 @@ class ObjectanimatorFragment :
                     super.onAnimationEnd(animation)
                 }
             })
-
     }
-
 
     override val viewModel: Any
         get() = TODO("Not yet implemented")
-
 
 }
 

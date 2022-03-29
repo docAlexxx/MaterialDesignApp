@@ -7,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.get
 import androidx.recyclerview.widget.RecyclerView
-import androidx.transition.*
+import androidx.transition.Explode
+import androidx.transition.Transition
+import androidx.transition.TransitionManager
+import androidx.transition.TransitionSet
 import com.example.materialdesignapp.R
 import com.example.materialdesignapp.databinding.FragmentExplodeBinding
 import com.example.materialdesignapp.utils.BindingFragment
