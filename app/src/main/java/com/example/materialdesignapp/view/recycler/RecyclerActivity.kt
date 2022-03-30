@@ -13,6 +13,7 @@ class RecyclerActivity : AppCompatActivity() {
         binding = ActivityRecyclerBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val data = arrayListOf(
+            Data("",type = TYPE_HEADER),
             Data("Earth",type = TYPE_EARTH),
             Data("Earth",type = TYPE_EARTH),
             Data("Mars", "",type = TYPE_MARS),
