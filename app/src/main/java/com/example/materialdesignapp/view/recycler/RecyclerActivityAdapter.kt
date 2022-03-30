@@ -11,13 +11,13 @@ import com.example.materialdesignapp.databinding.ActivityRecyclerItemMarsBinding
 class RecyclerActivityAdapter(
     private val onListItemClickListener: OnListItemClickListener,
     private var data: List<Data>
-) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+) : RecyclerView.Adapter<RecyclerActivityAdapter.BaseViewHolder>() {
 
     override fun getItemViewType(position: Int): Int {
         return data[position].type
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         when (viewType) {
             TYPE_EARTH -> {
                 val itemBinding: ActivityRecyclerItemEarthBinding =
@@ -45,18 +45,18 @@ class RecyclerActivityAdapter(
 
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when (getItemViewType(position)) {
-            TYPE_EARTH -> (holder as EarthViewHolder).bind(data[position])
-            TYPE_MARS -> (holder as MarsViewHolder).bind(data[position])
-            TYPE_HEADER -> (holder as HeaderViewHolder).bind(data[position])
-        }
+    override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
+        holder.bind(data[position])
+    }
+
+    abstract class BaseViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        abstract fun bind(data: Data)
     }
 
     override fun getItemCount() = data.size
 
-    inner class EarthViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bind(data: Data) {
+    inner class EarthViewHolder(view: View) : BaseViewHolder(view) {
+        override fun bind(data: Data) {
             ActivityRecyclerItemEarthBinding.bind(itemView).apply {
                 earthImageView.setOnClickListener {
                     onListItemClickListener.onItemClick(data)
@@ -65,8 +65,8 @@ class RecyclerActivityAdapter(
         }
     }
 
-    inner class MarsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bind(data: Data) {
+    inner class MarsViewHolder(view: View) : BaseViewHolder(view) {
+        override fun bind(data: Data) {
             ActivityRecyclerItemMarsBinding.bind(itemView).apply {
                 marsImageView.setOnClickListener {
                     onListItemClickListener.onItemClick(data)
@@ -75,8 +75,8 @@ class RecyclerActivityAdapter(
         }
     }
 
-    inner class HeaderViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bind(data: Data) {
+    inner class HeaderViewHolder(view: View) : BaseViewHolder(view) {
+        override fun bind(data: Data) {
             ActivityRecyclerItemHeaderBinding.bind(itemView).apply {
                 header.setOnClickListener {
                     onListItemClickListener.onItemClick(data)
