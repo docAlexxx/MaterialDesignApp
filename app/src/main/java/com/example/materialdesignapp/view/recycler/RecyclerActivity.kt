@@ -1,12 +1,29 @@
 package com.example.materialdesignapp.view.recycler
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.materialdesignapp.R
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.example.materialdesignapp.databinding.ActivityRecyclerBinding
 
 class RecyclerActivity : AppCompatActivity() {
+
+    lateinit var binding: ActivityRecyclerBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_recycler)
+        binding = ActivityRecyclerBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        val data = arrayListOf(
+            Data("Earth",type = TYPE_EARTH),
+            Data("Earth",type = TYPE_EARTH),
+            Data("Mars", "",type = TYPE_MARS),
+            Data("Earth",type = TYPE_EARTH),
+            Data("Earth",type = TYPE_EARTH),
+            Data("Earth",type = TYPE_EARTH),
+            Data("Mars", "",type = TYPE_MARS)
+        )
+
+        binding.recyclerView.adapter =RecyclerActivityAdapter({
+            Toast.makeText(this,it.someText,Toast.LENGTH_SHORT).show()
+        },data)
     }
 }
