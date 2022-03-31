@@ -10,7 +10,7 @@ import com.example.materialdesignapp.databinding.ActivityRecyclerItemMarsBinding
 
 class RecyclerActivityAdapter(
     private val onListItemClickListener: OnListItemClickListener,
-    private var data: List<Data>
+    private var data: MutableList<Data>
 ) : RecyclerView.Adapter<RecyclerActivityAdapter.BaseViewHolder>() {
 
     override fun getItemViewType(position: Int): Int {
@@ -53,6 +53,14 @@ class RecyclerActivityAdapter(
         abstract fun bind(data: Data)
     }
 
+    fun addItem() {
+        data.add(generateNewItem())
+        notifyItemInserted(itemCount - 1)
+    }
+
+
+    private fun generateNewItem() = Data("new Mars", type = TYPE_MARS)
+
     override fun getItemCount() = data.size
 
     inner class EarthViewHolder(view: View) : BaseViewHolder(view) {
@@ -65,13 +73,26 @@ class RecyclerActivityAdapter(
         }
     }
 
+
     inner class MarsViewHolder(view: View) : BaseViewHolder(view) {
         override fun bind(data: Data) {
             ActivityRecyclerItemMarsBinding.bind(itemView).apply {
                 marsImageView.setOnClickListener {
                     onListItemClickListener.onItemClick(data)
                 }
+                addItemImageView.setOnClickListener { addItemByPosition() }
+                removeItemImageView.setOnClickListener { removeItem() }
             }
+        }
+
+        private fun addItemByPosition() {
+            data.add(layoutPosition + 1, generateNewItem())
+            notifyItemInserted(layoutPosition + 1)
+        }
+
+        private fun removeItem() {
+            data.removeAt(layoutPosition)
+            notifyItemRemoved(layoutPosition)
         }
     }
 
