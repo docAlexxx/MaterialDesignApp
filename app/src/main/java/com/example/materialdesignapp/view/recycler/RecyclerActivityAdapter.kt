@@ -10,11 +10,11 @@ import com.example.materialdesignapp.databinding.ActivityRecyclerItemMarsBinding
 
 class RecyclerActivityAdapter(
     private val onListItemClickListener: OnListItemClickListener,
-    private var data: MutableList<Data>
+    private var dataItem: MutableList<Data>
 ) : RecyclerView.Adapter<RecyclerActivityAdapter.BaseViewHolder>() {
 
     override fun getItemViewType(position: Int): Int {
-        return data[position].type
+        return dataItem[position].type
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
@@ -46,7 +46,7 @@ class RecyclerActivityAdapter(
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
-        holder.bind(data[position])
+        holder.bind(dataItem[position])
     }
 
     abstract class BaseViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -54,14 +54,14 @@ class RecyclerActivityAdapter(
     }
 
     fun addItem() {
-        data.add(generateNewItem())
+        dataItem.add(generateNewItem())
         notifyItemInserted(itemCount - 1)
     }
 
 
     private fun generateNewItem() = Data("new Mars", type = TYPE_MARS)
 
-    override fun getItemCount() = data.size
+    override fun getItemCount() = dataItem.size
 
     inner class EarthViewHolder(view: View) : BaseViewHolder(view) {
         override fun bind(data: Data) {
@@ -82,18 +82,35 @@ class RecyclerActivityAdapter(
                 }
                 addItemImageView.setOnClickListener { addItemByPosition() }
                 removeItemImageView.setOnClickListener { removeItem() }
+                moveItemUp.setOnClickListener { if (layoutPosition>1) moveUp() }
+                moveItemDown.setOnClickListener { if (layoutPosition<dataItem.size-1) moveDown() }
             }
         }
 
         private fun addItemByPosition() {
-            data.add(layoutPosition + 1, generateNewItem())
+            dataItem.add(layoutPosition + 1, generateNewItem())
             notifyItemInserted(layoutPosition + 1)
         }
 
         private fun removeItem() {
-            data.removeAt(layoutPosition)
+            dataItem.removeAt(layoutPosition)
             notifyItemRemoved(layoutPosition)
         }
+
+        private fun moveUp() {
+            dataItem.removeAt(layoutPosition).apply {
+                dataItem.add(layoutPosition - 1, this)
+            }
+            notifyItemMoved(layoutPosition, layoutPosition - 1)
+        }
+
+        private fun moveDown() {
+            dataItem.removeAt(layoutPosition).apply {
+                dataItem.add(layoutPosition + 1, this)
+            }
+            notifyItemMoved(layoutPosition, layoutPosition + 1)
+        }
+
     }
 
     inner class HeaderViewHolder(view: View) : BaseViewHolder(view) {
