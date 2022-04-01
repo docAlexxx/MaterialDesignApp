@@ -1,5 +1,6 @@
 package com.example.materialdesignapp.view.recycler
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +12,7 @@ import com.example.materialdesignapp.databinding.ActivityRecyclerItemMarsBinding
 class RecyclerActivityAdapter(
     private val onListItemClickListener: OnListItemClickListener,
     private var dataItems: MutableList<Pair<Boolean, Data>>
-) : RecyclerView.Adapter<RecyclerActivityAdapter.BaseViewHolder>() {
+) : RecyclerView.Adapter<RecyclerActivityAdapter.BaseViewHolder>(), ItemTouchHelperAdapter {
 
     override fun getItemViewType(position: Int): Int {
         return dataItems[position].second.type
@@ -58,7 +59,6 @@ class RecyclerActivityAdapter(
         notifyItemInserted(itemCount - 1)
     }
 
-
     private fun generateNewItem() = Pair(false, Data("new Mars", type = TYPE_MARS))
 
     override fun getItemCount() = dataItems.size
@@ -73,7 +73,7 @@ class RecyclerActivityAdapter(
         }
     }
 
-    inner class MarsViewHolder(view: View) : BaseViewHolder(view) {
+    inner class MarsViewHolder(view: View) : BaseViewHolder(view), ItemTouchHelperViewAdapter {
         override fun bind(data: Pair<Boolean, Data>) {
             ActivityRecyclerItemMarsBinding.bind(itemView).apply {
                 marsImageView.setOnClickListener {
@@ -123,9 +123,18 @@ class RecyclerActivityAdapter(
             notifyItemMoved(layoutPosition, layoutPosition + 1)
         }
 
+        override fun onItemSelected() {
+            itemView.setBackgroundColor(Color.LTGRAY)
+        }
+
+        override fun onItemClear() {
+            itemView.setBackgroundColor(0)
+        }
+
+
     }
 
-    inner class HeaderViewHolder(view: View) : BaseViewHolder(view) {
+    inner class HeaderViewHolder(view: View) : RecyclerActivityAdapter.BaseViewHolder(view) {
         override fun bind(data: Pair<Boolean, Data>) {
             ActivityRecyclerItemHeaderBinding.bind(itemView).apply {
                 header.setOnClickListener {
@@ -134,4 +143,21 @@ class RecyclerActivityAdapter(
             }
         }
     }
+
+    override fun onItemMove(fromPosition: Int, toPosition: Int) {
+
+        if (toPosition > 0) {
+            dataItems.removeAt(fromPosition).apply {
+                dataItems.add(toPosition, this)
+            }
+            notifyItemMoved(fromPosition, toPosition)
+        }
+    }
+
+    override fun onItemDismiss(position: Int) {
+        dataItems.removeAt(position)
+        notifyItemRemoved(position)
+    }
+
+
 }
