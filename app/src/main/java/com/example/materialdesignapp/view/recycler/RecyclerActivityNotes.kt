@@ -19,7 +19,7 @@ class RecyclerActivityNotes : AppCompatActivity() {
         val data = arrayListOf(
             Pair(false, Data("", type = TYPE_HEADER)),
             Pair(false, Data("Note 1", type = TYPE_NOTES)),
-         )
+        )
 
 
         adapterNotes = RecyclerActivityNotesAdapter({
@@ -32,6 +32,17 @@ class RecyclerActivityNotes : AppCompatActivity() {
             adapterNotes.addItem()
             binding.recyclerView.smoothScrollToPosition(adapterNotes.itemCount - 1)
         }
+
+        binding.filterInputLayout.setEndIconOnClickListener {
+
+            data.filter {
+                val textFind = binding.filterEditText.text.toString()
+                it.second.someText.contains(textFind)
+            }
+            adapterNotes.notifyDataSetChanged()
+
+        }
+
         ItemTouchHelper(ItemTouchHelperCallback(adapterNotes)).attachToRecyclerView(binding.recyclerView)
     }
 
@@ -61,8 +72,9 @@ class RecyclerActivityNotes : AppCompatActivity() {
             target: RecyclerView.ViewHolder
         ): Boolean {
             if (viewHolder is RecyclerActivityNotesAdapter.NotesViewHolder) {
-            adapter.onItemMove(viewHolder.adapterPosition, target.adapterPosition)
-            return true} else return false
+                adapter.onItemMove(viewHolder.adapterPosition, target.adapterPosition)
+                return true
+            } else return false
         }
 
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {

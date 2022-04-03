@@ -38,6 +38,10 @@ class RecyclerActivity : AppCompatActivity() {
             adapter.addItem()
             binding.recyclerView.smoothScrollToPosition(adapter.itemCount - 1)
         }
+
+
+
+
         ItemTouchHelper(ItemTouchHelperCallback(adapter)).attachToRecyclerView(binding.recyclerView)
     }
 
@@ -67,8 +71,9 @@ class RecyclerActivity : AppCompatActivity() {
             target: RecyclerView.ViewHolder
         ): Boolean {
             if (viewHolder is RecyclerActivityAdapter.MarsViewHolder) {
-            adapter.onItemMove(viewHolder.adapterPosition, target.adapterPosition)
-            return true} else return false
+                adapter.onItemMove(viewHolder.adapterPosition, target.adapterPosition)
+                return true
+            } else return false
         }
 
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {

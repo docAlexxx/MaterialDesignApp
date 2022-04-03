@@ -4,9 +4,7 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import com.example.materialdesignapp.R
 import com.example.materialdesignapp.databinding.ActivityRecyclerItemHeaderBinding
 import com.example.materialdesignapp.databinding.ActivityRecyclerItemNotesBinding
 
@@ -21,7 +19,7 @@ class RecyclerActivityNotesAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         when (viewType) {
-            TYPE_NOTES-> {
+            TYPE_NOTES -> {
                 val itemBinding: ActivityRecyclerItemNotesBinding =
                     ActivityRecyclerItemNotesBinding.inflate(
                         LayoutInflater.from(parent.context), parent, false
@@ -53,7 +51,7 @@ class RecyclerActivityNotesAdapter(
         notifyItemInserted(itemCount - 1)
     }
 
-    private fun generateNewItem() = Pair(false, Data("Note"+ getItemCount(), type = TYPE_NOTES))
+    private fun generateNewItem() = Pair(false, Data("Note" + getItemCount(), type = TYPE_NOTES))
 
     override fun getItemCount() = dataItems.size
 
@@ -65,7 +63,7 @@ class RecyclerActivityNotesAdapter(
                 moveItemUp.setOnClickListener { if (layoutPosition > 1) moveUp() }
                 moveItemDown.setOnClickListener { if (layoutPosition < dataItems.size - 1) moveDown() }
                 noteTextView.setOnClickListener { showDescription() }
-                noteTextView.text=dataItems[layoutPosition].second.someText
+                noteTextView.text = dataItems[layoutPosition].second.someText
                 safeItemImageView.setOnClickListener { safeNote(noteDescriptionTextView.text.toString()) }
                 noteDescriptionTextView.setText(dataItems[layoutPosition].second.description)
                 noteDescriptionTextView.visibility =
@@ -74,8 +72,8 @@ class RecyclerActivityNotesAdapter(
         }
 
 
-        private fun safeNote(newDescription:String) {
-            dataItems[layoutPosition].second.description= newDescription
+        private fun safeNote(newDescription: String) {
+            dataItems[layoutPosition].second.description = newDescription
             notifyItemChanged(layoutPosition)
         }
 
