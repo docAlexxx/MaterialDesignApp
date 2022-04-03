@@ -19,11 +19,14 @@
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/activity_api_tablayout_item_mars.xml" value="0.2546875" />
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/activity_api_tablayout_item_system.xml" value="0.24270833333333333" />
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/activity_main.xml" value="0.3645833333333333" />
+        <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/activity_notes_recycler.xml" value="0.2328125" />
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/activity_recycler.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/activity_recycler_item_earth.xml" value="0.2791666666666667" />
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/activity_recycler_item_header.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/activity_recycler_item_hesder.xml" value="0.2911458333333333" />
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/activity_recycler_item_mars.xml" value="0.2791666666666667" />
+        <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/activity_recycler_item_note.xml" value="0.2989583333333333" />
+        <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/activity_recycler_item_notes.xml" value="0.2328125" />
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/bottom_navigation_layout.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/bottom_sheet_layout.xml" value="0.36096014492753625" />
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/explore_recycler_item.xml" value="0.3269927536231884" />
@@ -36,6 +39,7 @@
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/fragment_exlode.xml" value="0.3269927536231884" />
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/fragment_explode.xml" value="0.24270833333333333" />
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/fragment_explode_recycler_item.xml" value="0.2546875" />
+        <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/fragment_item_notes.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/fragment_main.xml" value="0.3645833333333333" />
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/fragment_mars.xml" value="0.3446557971014493" />
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/fragment_motion.xml" value="0.2838541666666667" />
