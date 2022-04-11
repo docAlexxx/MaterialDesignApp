@@ -41,5 +41,11 @@
         <item name="cornerFamily">cut</item>
     </style>
 
+    <style name="spanText">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">"sans-serif-medium"</item>
+        <item name="android:textColor">#FF6D00</item>
+    </style>
+
 
 </resources>
