@@ -27,6 +27,7 @@
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:text="title"
+        android:fontFamily="@font/merienda"
         android:textColor="#FA7070"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

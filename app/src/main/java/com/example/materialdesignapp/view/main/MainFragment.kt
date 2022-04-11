@@ -2,7 +2,9 @@ package com.example.materialdesignapp.view.main
 
 
 import android.content.Intent
+import android.graphics.Typeface
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -10,6 +12,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
@@ -38,6 +41,7 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
         ViewModelProvider(this).get(PictureOfTheDayViewModel::class.java)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getData().observe(viewLifecycleOwner, Observer {
@@ -64,7 +68,24 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
 
         chipChoise()
 
+        setFonts()
+
     }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun setFonts() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            binding.included.bottomSheetDescription.typeface = resources.getFont(R.font.merienda)
+        } else {
+
+            binding.included.bottomSheetDescription.typeface =
+                Typeface.createFromAsset(
+                    requireActivity().assets, "merienda.ttf"
+                )
+        }
+
+    }
+
 
     fun bottomSheetCreate() {
         bottomSheetBehavior = BottomSheetBehavior.from(binding.included.bottomSheetContainer)
