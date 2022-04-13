@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.materialdesignapp.databinding.ActivityNotesRecyclerBinding
+import com.example.materialdesignapp.view.settings.curTheme
 
 class RecyclerActivityNotes : AppCompatActivity() {
 
@@ -14,6 +15,7 @@ class RecyclerActivityNotes : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(curTheme)
         binding = ActivityNotesRecyclerBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val data = arrayListOf(

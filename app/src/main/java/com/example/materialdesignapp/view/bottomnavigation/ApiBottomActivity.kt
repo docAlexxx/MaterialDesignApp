@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.materialdesignapp.R
 import com.example.materialdesignapp.databinding.ActivityApiBottomBinding
+import com.example.materialdesignapp.view.settings.curTheme
 import com.example.materialdesignapp.view.viewpager.EarthFragment
 import com.example.materialdesignapp.view.viewpager.MarsFragment
 import com.example.materialdesignapp.view.viewpager.SystemFragment
@@ -16,6 +17,7 @@ class ApiBottomActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(curTheme)
         binding = ActivityApiBottomBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

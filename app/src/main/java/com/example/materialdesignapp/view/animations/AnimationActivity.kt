@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.materialdesignapp.R
 import com.example.materialdesignapp.databinding.ActivityAnimationsBinding
+import com.example.materialdesignapp.view.settings.curTheme
 
 class AnimationActivity : AppCompatActivity() {
 
@@ -12,6 +13,7 @@ class AnimationActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(curTheme)
         binding = ActivityAnimationsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
