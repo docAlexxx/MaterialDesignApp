@@ -29,6 +29,7 @@
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/activity_recycler_item_note.xml" value="0.2989583333333333" />
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/activity_recycler_item_notes.xml" value="0.2328125" />
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/activity_splash.xml" value="0.25" />
+        <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/activity_ux.xml" value="0.2546875" />
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/bottom_navigation_layout.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/bottom_sheet_layout.xml" value="0.36096014492753625" />
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/explore_recycler_item.xml" value="0.3269927536231884" />
@@ -52,6 +53,8 @@
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/fragment_settings.xml" value="0.2598958333333333" />
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/fragment_system.xml" value="0.3446557971014493" />
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/fragment_transition.xml" value="0.2791666666666667" />
+        <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/fragment_ux_buttons.xml" value="0.26666666666666666" />
+        <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/fragment_ux_text.xml" value="0.2546875" />
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/fragment_щиоусефтшьфещ.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/layout/menu_bottom_navigation_view.xml" value="0.24270833333333333" />
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/menu/menu_animations.xml" value="0.2791666666666667" />
@@ -59,6 +62,7 @@
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/menu/menu_bottom_bar_other_screen.xml" value="0.2171875" />
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/menu/menu_bottom_navigation_view.xml" value="0.24270833333333333" />
+        <entry key="..\:/Users/Sasha/AndroidStudioProjects/MaterialDesignApp/app/src/main/res/menu/menu_bottom_navigation_view_ux.xml" value="0.2546875" />
       </map>
     </option>
   </component>

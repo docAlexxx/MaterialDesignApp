@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.materialdesignapp.R
 import com.example.materialdesignapp.databinding.BottomNavigationLayoutBinding
+import com.example.materialdesignapp.view.UX.UXActivity
 import com.example.materialdesignapp.view.animations.AnimationActivity
 import com.example.materialdesignapp.view.bottomnavigation.ApiBottomActivity
 import com.example.materialdesignapp.view.layouts.ConstraintlayoutFragment
@@ -53,6 +54,9 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
                 }
                 R.id.recycler -> {
                     startActivity(Intent(requireContext(), RecyclerActivityNotes::class.java))
+                }
+                R.id.ux_examples -> {
+                    startActivity(Intent(requireContext(), UXActivity::class.java))
                 }
             }
 

@@ -25,6 +25,10 @@
             android:id="@+id/animations"
             android:icon="@android:drawable/presence_video_online"
             android:title="Animations" />
+        <item
+            android:id="@+id/ux_examples"
+            android:icon="@android:drawable/ic_menu_sort_by_size"
+            android:title="UX-examples" />
 
     </group>
 </menu>

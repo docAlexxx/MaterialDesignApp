@@ -30,6 +30,10 @@
         <activity
             android:name=".view.animations.AnimationActivity"
             android:exported="true"/>
+        <activity
+            android:name=".view.UX.UXActivity"
+            android:exported="true"/>
+
 
         <activity
             android:name=".view.SplashActivity"
