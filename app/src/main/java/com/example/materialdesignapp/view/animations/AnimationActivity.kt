@@ -49,6 +49,10 @@ class AnimationActivity : AppCompatActivity() {
     }
 
     fun navigateTo(fragment: Fragment) {
-        supportFragmentManager.beginTransaction().replace(R.id.containerActivity, fragment).commit()
+        //  supportFragmentManager.beginTransaction().replace(R.id.containerActivity, fragment).commit()
+        supportFragmentManager.beginTransaction().setCustomAnimations(
+            R.anim.to_left_in, R.anim.to_left_out, R.anim.to_right_in, R.anim.to_right_out
+        ).replace(R.id.containerActivity, fragment).commit()
+
     }
 }
