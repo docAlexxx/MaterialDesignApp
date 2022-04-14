@@ -17,7 +17,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Title"
+            android:text="@string/title_text"
             android:textColor="@color/black"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -25,14 +25,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Main text"
+            android:text="@string/main_text"
             android:textColor="@color/color_gray"
             android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="(c) сompany name"
+            android:text="@string/additional_text"
             android:textColor="@color/color_gray"
             android:textSize="16sp" />
 
@@ -50,7 +50,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Title"
+            android:text="@string/title_text"
             android:textColor="#FB0606"
             android:textSize="35sp"
             android:textStyle="bold" />
@@ -58,14 +58,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Main text"
+            android:text="@string/main_text"
             android:textColor="#BD2121"
             android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="(c) сompany name"
+            android:text="@string/additional_text"
             android:textColor="#DA8686"
             android:textSize="16sp" />
 
@@ -84,7 +84,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Title"
+            android:text="@string/title_text"
             android:textColor="?colorOnPrimary"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -92,14 +92,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Main text"
+            android:text="@string/main_text"
             android:textColor="?colorOnPrimary"
             android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="(c) сompany name"
+            android:text="@string/additional_text"
             android:textColor="?colorOnPrimary"
             android:textSize="16sp" />
 
@@ -123,21 +123,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Title"
+            android:text="@string/title_text"
             android:textColor="@color/textLightPrimary"
             android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Main text"
+            android:text="@string/main_text"
             android:textColor="@color/textLightSecondary"
             android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="(c) сompany name"
+            android:text="@string/additional_text"
             android:textColor="@color/textLightDisabled"
             android:textSize="20sp" />
     </LinearLayout>
@@ -154,21 +154,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Title"
+            android:text="@string/title_text"
             android:textColor="@color/textDarkPrimary"
             android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Main text"
+            android:text="@string/main_text"
             android:textColor="@color/textDarkSecondary"
             android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="(c) сompany name"
+            android:text="@string/additional_text"
             android:textColor="@color/textDarkDisabled"
             android:textSize="20sp" />
     </LinearLayout>
@@ -184,21 +184,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Title"
+            android:text="@string/title_text"
             android:textColor="@color/textDarkPrimary"
             android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Main text"
+            android:text="@string/main_text"
             android:textColor="@color/textDarkSecondary"
             android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="(c) сompany name"
+            android:text="@string/additional_text"
             android:textColor="@color/textDarkDisabled"
             android:textSize="20sp" />
     </LinearLayout>

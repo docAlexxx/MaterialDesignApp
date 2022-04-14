@@ -110,6 +110,12 @@
     <string name="title">Title</string>
     <string name="earth">Earth</string>
     <string name="earth_description">Description</string>
+    <string name="main_button_text">Main button</string>
+    <string name="second_button_text">second button</string>
+    <string name="additional_button_text">additional btn</string>
+    <string name="title_text">Title</string>
+    <string name="main_text">Main text</string>
+    <string name="additional_text">(c) сompany name</string>
 
 
 </resources>
