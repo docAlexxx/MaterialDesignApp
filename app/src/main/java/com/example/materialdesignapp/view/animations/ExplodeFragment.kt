@@ -14,15 +14,40 @@ import androidx.transition.TransitionSet
 import com.example.materialdesignapp.R
 import com.example.materialdesignapp.databinding.FragmentExplodeBinding
 import com.example.materialdesignapp.utils.BindingFragment
+import smartdevelop.ir.eram.showcaseviewlib.GuideView
+import smartdevelop.ir.eram.showcaseviewlib.config.DismissType
 
 class ExplodeFragment :
     BindingFragment<FragmentExplodeBinding>(FragmentExplodeBinding::inflate) {
 
     private var isBeforeExplode = true
+    private var isTutorialShown=false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.explodeRecyclerView.adapter = MyAdapter()
+        showHint()
+    }
+
+    private fun showHint() {
+        val builder = GuideView.Builder(requireContext())
+            .setTitle("Explode example")
+            .setContentText("Push any button to explode")
+            .setGravity(smartdevelop.ir.eram.showcaseviewlib.config.Gravity.auto)
+            .setDismissType(DismissType.anywhere)
+            .setTargetView(binding.explodeRecyclerView)
+        builder.build().show()
+    }
+
+    private fun showSecondHint(pos:Int) {
+        val builder = GuideView.Builder(requireContext())
+            .setTitle("Explode example")
+            .setContentText("Push the remaining button to restore all buttons")
+            .setGravity(smartdevelop.ir.eram.showcaseviewlib.config.Gravity.auto)
+            .setDismissType(DismissType.targetView)
+            .setTargetView(binding.explodeRecyclerView[pos])
+        builder.build().show()
+        isTutorialShown=true
     }
 
     inner class MyAdapter : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
@@ -65,6 +90,9 @@ class ExplodeFragment :
                     }
                 }
                 isBeforeExplode = !isBeforeExplode
+
+                if (isTutorialShown==false) showSecondHint(position)
+
             }
         }
 

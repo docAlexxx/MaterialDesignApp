@@ -6,6 +6,8 @@ import android.view.View
 import androidx.transition.*
 import com.example.materialdesignapp.databinding.FragmentTransitionBinding
 import com.example.materialdesignapp.utils.BindingFragment
+import smartdevelop.ir.eram.showcaseviewlib.GuideView
+import smartdevelop.ir.eram.showcaseviewlib.config.DismissType
 
 class TransitionFragment :
     BindingFragment<FragmentTransitionBinding>(FragmentTransitionBinding::inflate) {
@@ -43,6 +45,17 @@ class TransitionFragment :
                 }
             }
         }
+        showHint()
+    }
+
+    private fun showHint() {
+        val builder = GuideView.Builder(requireContext())
+            .setTitle("Transition example")
+            .setContentText("Push this button to resize it")
+            .setGravity(smartdevelop.ir.eram.showcaseviewlib.config.Gravity.center)
+            .setDismissType(DismissType.targetView)
+            .setTargetView(binding.button)
+        builder.build().show()
 
     }
 

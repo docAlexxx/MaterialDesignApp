@@ -9,6 +9,8 @@ import androidx.transition.ChangeBounds
 import androidx.transition.TransitionManager
 import com.example.materialdesignapp.databinding.FragmentMotionBinding
 import com.example.materialdesignapp.utils.BindingFragment
+import smartdevelop.ir.eram.showcaseviewlib.GuideView
+import smartdevelop.ir.eram.showcaseviewlib.config.DismissType
 
 class MotionFragment :
     BindingFragment<FragmentMotionBinding>(FragmentMotionBinding::inflate) {
@@ -69,7 +71,17 @@ class MotionFragment :
             }
 
         }
+        showHint()
+    }
 
+    private fun showHint() {
+        val builder = GuideView.Builder(requireContext())
+            .setTitle("Motion example")
+            .setContentText("Push here button for moving")
+            .setGravity(smartdevelop.ir.eram.showcaseviewlib.config.Gravity.auto)
+            .setDismissType(DismissType.outsideTargetAndMessage)
+            .setTargetView(binding.buttonMain)
+        builder.build().show()
     }
 
     override val viewModel: Any
